@@ -29,7 +29,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build:cli": "tsup",
+    "build": "npm run build:cli && tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "test:e2e": "playwright test",
@@ -37,7 +38,7 @@
     "generate:catalog": "tsx scripts/generate-docs-catalog.ts",
     "predev": "tsx scripts/generate-docs-catalog.ts",
     "prebuild": "tsx scripts/generate-docs-catalog.ts",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build:cli && npm run build"
   },
   "keywords": [
     "documentation",
@@ -68,13 +69,14 @@
     "highlight.js": "^11.11.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18",
-    "tsx": "^4.21.0",
+    "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
     "vitest": "^4.0.17"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
+    "tsx": "^4.21.0",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "commander": "^12.1.0",
     "fuse.js": "^7.1.0",

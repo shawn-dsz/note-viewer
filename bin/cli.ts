@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * note-viewer CLI
  * Commands: init, dev, build, preview
@@ -209,10 +208,10 @@ async function runCatalogGenerator(): Promise<void> {
 
   return new Promise((resolve, reject) => {
     const scriptPath = path.join(packageRoot, 'scripts', 'generate-docs-catalog.ts')
-    const child = spawn('npx', ['tsx', scriptPath], {
+    const tsxBin = path.join(packageRoot, 'node_modules', '.bin', 'tsx')
+    const child = spawn(tsxBin, [scriptPath], {
       cwd: packageRoot,  // Run from package root so output goes to right place
       stdio: 'inherit',
-      shell: true,
       env: {
         ...process.env,
         NOTE_VIEWER_CONFIG_DIR: process.cwd(),  // Pass user's directory via env

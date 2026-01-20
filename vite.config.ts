@@ -23,9 +23,15 @@ try {
  */
 function generateCatalog() {
   try {
-    execSync('tsx scripts/generate-docs-catalog.ts', {
+    // Use direct path to tsx binary for reliable execution when globally installed
+    const tsxBin = path.join(__dirname, 'node_modules', '.bin', 'tsx')
+    execSync(`"${tsxBin}" scripts/generate-docs-catalog.ts`, {
       cwd: __dirname,
       stdio: 'inherit',
+      env: {
+        ...process.env,
+        NOTE_VIEWER_CONFIG_DIR: configDir,
+      },
     })
   } catch (error) {
     console.error('Failed to generate catalog:', error)

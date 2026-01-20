@@ -2,6 +2,8 @@
 dist/
 build/
 *.tsbuildinfo
+bin/cli.js
+bin/cli.js.map
 
 # Dependencies
 node_modules/
