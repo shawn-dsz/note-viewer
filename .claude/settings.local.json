@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(node /Users/shawn/proj/note-viewer/bin/cli.js:*)",
+      "Bash(npm link)",
+      "Bash(note-viewer --version)",
+      "Bash(curl:*)",
+      "Bash(npm test:*)",
+      "Bash(pkill:*)"
+    ]
+  }
+}
