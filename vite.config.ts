@@ -117,7 +117,7 @@ export default defineConfig({
     },
     {
       name: 'copy-markdown',
-      closeBundle() {
+      writeBundle(options) {
         const ignoreDirs = new Set(['node_modules', '.git', 'dist', 'build', '.specify', 'venv', '.venv', 'notes-viewer'])
 
         const copyDir = (src: string, dest: string) => {
@@ -139,8 +139,9 @@ export default defineConfig({
           }
         }
 
-        // Copy markdown files from content directory to dist
-        const distDir = path.resolve(__dirname, 'dist')
+        // Copy markdown files from content directory to the actual output directory
+        // options.dir contains the resolved output directory from build config
+        const distDir = options.dir || path.resolve(__dirname, 'dist')
         copyDir(contentDir, distDir)
       },
     },
