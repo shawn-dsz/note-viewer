@@ -24,21 +24,21 @@ export const docFiles: DocFile[] = [
     "title": "Operations Management - Comprehensive Study Guide",
     "category": "misc",
     "path": "/Operations_Comprehensive_Study_Guide.md",
-    "description": "> **Course:** BUSA90227 - Operations Management"
+    "description": "Complete study guide covering all 10 weeks of operations management concepts"
   },
   {
     "id": "misc-operations_study_schedule_10week",
     "title": "Operations Management - 10-Week Study Schedule",
     "category": "misc",
     "path": "/Operations_Study_Schedule_10Week.md",
-    "description": "> **Student:** Shawn D'souza (ID: 1552574)"
+    "description": "Complete 10-week study schedule with weekly rhythm and important dates"
   },
   {
     "id": "misc-operations_t3_2024_notes_sdz",
-    "title": "Week 1 -- Course Overview and Introduction to the Process view of the organization",
+    "title": "Operations T3 2024 Notes",
     "category": "misc",
     "path": "/Operations_T3_2024_Notes_SDZ.md",
-    "description": "- Effective operations management is about effectively matching supply"
+    "description": "Reference notes from Term 3 2024 cohort covering all operations concepts"
   },
   {
     "id": "reference-readme",
@@ -52,133 +52,154 @@ export const docFiles: DocFile[] = [
     "title": "Operations Management - Week 1 Study Guide",
     "category": "week-1",
     "path": "/weeks/week-1-process-view-of-organization/Operations_Study_Guide_Week1.md",
-    "description": "> **Course:** Operations Management, London Business School, Term 1 2026"
+    "description": "Comprehensive study guide for Week 1 covering course overview and process analysis"
   },
   {
     "id": "week-1-week1_1page_study_guide",
-    "title": "Operations Management - Week 1: One-Page Study Guide",
+    "title": "Week 1 One-Page Study Guide",
     "category": "week-1",
     "path": "/weeks/week-1-process-view-of-organization/Week1_1Page_Study_Guide.md",
-    "description": "> **Student:** Shawn D'souza | **ID:** 1552574 | **Class:** Wed 6pm-9:15pm"
+    "description": "Condensed one-page summary of Week 1 key concepts and formulas"
   },
   {
     "id": "week-1-week1_cold_call_prep",
     "title": "Week 1 Cold Call Preparation Guide",
     "category": "week-1",
     "path": "/weeks/week-1-process-view-of-organization/Week1_Cold_Call_Prep.md",
-    "description": "> **Goal:** Be ready to answer questions confidently in class. Cold calling counts toward your 30% participation grade."
+    "description": "Preparation guide for likely cold call questions in Week 1 class"
   },
   {
     "id": "week-1-week1_notes",
     "title": "Week 1 - Course Overview and Process View of Organizations",
     "category": "week-1",
     "path": "/weeks/week-1-process-view-of-organization/Week1_Notes.md",
-    "description": "> **Topic:** Course Overview and Introduction to the Process View of the Organization"
+    "description": "Lecture notes covering operations fundamentals, supply-demand matching, and process view concepts"
   },
   {
     "id": "week-1-week1_problemset_11_solution",
-    "title": "Week 1 Problem Set 1.1 - One Dozen Cookies (Solution)",
+    "title": "Week 1 Problem Set 1.1 - One Dozen Cookies Solution",
     "category": "week-1",
     "path": "/weeks/week-1-process-view-of-organization/Week1_ProblemSet_1.1_Solution.md",
-    "description": "> **Case:** Kristen's Cookie Company"
+    "description": "Step-by-step solution for Problem Set 1.1 analyzing one dozen cookie production"
   },
   {
     "id": "week-1-week1_readings_takeaways",
     "title": "Week 1 Readings - Key Takeaways",
     "category": "week-1",
     "path": "/weeks/week-1-process-view-of-organization/Week1_Readings_Takeaways.md",
-    "description": "How to analyze and optimize a simple production process to maximize efficiency and profit."
+    "description": "Summary of key insights from Kristen's Cookie Company case and other Week 1 readings"
   },
   {
     "id": "week-1-week1_slides_study_guide",
     "title": "Week 1 Slides Study Guide",
     "category": "week-1",
     "path": "/weeks/week-1-process-view-of-organization/Week1_Slides_Study_Guide.md",
-    "description": "> **Course:** BUSA90227 - Operations Management"
+    "description": "Comprehensive guide based on Week 1 lecture slides covering process view and flow metrics"
+  },
+  {
+    "id": "week-1-week_1_problem_set_solutions",
+    "title": "Week 1 Problem Set - Process Flow Foundations Solutions",
+    "category": "week-1",
+    "path": "/weeks/week-1-process-view-of-organization/Week_1_Problem_Set_Solutions.md",
+    "description": "Worked solutions for Week 1 problem set covering Kristen's Cookie Company"
   },
   {
     "id": "week-1-effectiveness_vs_efficiency",
     "title": "Effectiveness vs Efficiency",
     "category": "week-1",
     "path": "/weeks/week-1-process-view-of-organization/effectiveness_vs_efficiency.md",
-    "description": "**Effectiveness** - \"Doing the right things\""
+    "description": "Comparison of effectiveness and efficiency concepts with real-world examples"
   },
   {
     "id": "week-1-mission_vision_values_strategy",
     "title": "Mission, Vision, Values, Strategy",
     "category": "week-1",
     "path": "/weeks/week-1-process-view-of-organization/mission_vision_values_strategy.md",
-    "description": "**What we do today, who we do it for, and why**"
+    "description": "Definitions and distinctions between mission, vision, values, and strategy"
   },
   {
     "id": "week-10-week10_notes",
     "title": "Week 10 - Newsvendor Model",
     "category": "week-10",
     "path": "/weeks/week-10-newsvendor-model/Week10_Notes.md",
-    "description": "> **Topic:** Managing Inventory Under Uncertainty - The Newsvendor Model"
+    "description": "Lecture notes on managing inventory under uncertainty using the newsvendor model"
+  },
+  {
+    "id": "week-2-donner_company_questions_answers",
+    "title": "Donner Company - Discussion Questions & Answers",
+    "category": "week-2",
+    "path": "/weeks/week-2-process-analysis-evaluating-capacity/Donner_Company_Questions_Answers.md",
+    "description": "Discussion questions and answers for Donner Company case preparation"
   },
   {
     "id": "week-2-donner_company_summary",
     "title": "Donner Company Case Summary",
     "category": "week-2",
     "path": "/weeks/week-2-process-analysis-evaluating-capacity/Donner_Company_Summary.md",
-    "description": "- **Business:** Contract manufacturer of printed circuit boards (PCBs) for electronics manufacturers"
+    "description": "Summary of Donner Company PCB manufacturing case covering process flow and capacity decisions"
   },
   {
     "id": "week-2-week2_notes",
     "title": "Week 2 - Process Analysis I: Evaluating Process Capacity",
     "category": "week-2",
     "path": "/weeks/week-2-process-analysis-evaluating-capacity/Week2_Notes.md",
-    "description": "> **Topic:** Process Analysis I: Evaluating Process Capacity and Performing Detailed Process Analysis"
+    "description": "Lecture notes on process capacity evaluation, Little's Law, and detailed process analysis"
+  },
+  {
+    "id": "week-2-week2_problem_set_solutions",
+    "title": "Week 2 Problem Set Solutions - Donner Company and Little's Law",
+    "category": "week-2",
+    "path": "/weeks/week-2-process-analysis-evaluating-capacity/Week2_Problem_Set_Solutions.md",
+    "description": "Worked solutions for Week 2 problem set covering Donner Company analysis and Little's Law"
   },
   {
     "id": "week-3-week3_notes",
     "title": "Week 3 - Process Analysis II: Analyzing Assembly Operations",
     "category": "week-3",
     "path": "/weeks/week-3-assembly-operations-line-balancing/Week3_Notes.md",
-    "description": "> **Topic:** Process Analysis II: Analyzing Assembly Operations and Line Balancing"
+    "description": "Lecture notes on assembly operations, line balancing, and process type classification"
   },
   {
     "id": "week-4-week4_notes",
     "title": "Week 4 - Process Analysis Wrap-up",
     "category": "week-4",
     "path": "/weeks/week-4-process-analysis-wrapup/Week4_Notes.md",
-    "description": "> **Topic:** Process Analysis Wrap-up - Mass Customization, Line Balancing, and Scaling Production"
+    "description": "Lecture notes on mass customization, delayed differentiation, and advanced line balancing"
   },
   {
     "id": "week-5-week5_notes",
     "title": "Week 5 - Project Management",
     "category": "week-5",
     "path": "/weeks/week-5-project-management/Week5_Notes.md",
-    "description": "> **Topic:** Project Management - Critical Path Method, PERT, and Project Crashing"
+    "description": "Lecture notes on project management, critical path method, PERT, and project crashing"
   },
   {
     "id": "week-6-week6_notes",
     "title": "Week 6 - Setup Times and Inventory Management",
     "category": "week-6",
     "path": "/weeks/week-6-setup-times-inventory-management/Week6_Notes.md",
-    "description": "> **Topic:** Setup Times, Batch Size, EOQ Model, and Inventory Management"
+    "description": "Lecture notes on setup times, batch sizing, EOQ model, and inventory management"
   },
   {
     "id": "week-7-week7_notes",
     "title": "Week 7 - Waiting Time Problems",
     "category": "week-7",
     "path": "/weeks/week-7-waiting-time-problems/Week7_Notes.md",
-    "description": "> **Topic:** Variability and Its Impact on Process Performance - Waiting Time Problems"
+    "description": "Lecture notes on variability's impact on waiting times and queue management"
   },
   {
     "id": "week-8-week8_notes",
     "title": "Week 8 - Throughput Losses",
     "category": "week-8",
     "path": "/weeks/week-8-throughput-losses/Week8_Notes.md",
-    "description": "> **Topic:** Variability and Its Impact on Process Performance - Throughput Losses"
+    "description": "Lecture notes on throughput losses when customers won't wait"
   },
   {
     "id": "week-9-week9_notes",
     "title": "Week 9 - Introduction to Quality",
     "category": "week-9",
     "path": "/weeks/week-9-quality-management/Week9_Notes.md",
-    "description": "> **Topic:** Quality Management - Dimensions, Costs, and Statistical Process Control"
+    "description": "Lecture notes on quality dimensions, cost of quality, and statistical process control"
   }
 ]
 
@@ -193,63 +214,70 @@ export const docCategories: DocCategory[] = [
         "title": "Effectiveness vs Efficiency",
         "category": "week-1",
         "path": "/weeks/week-1-process-view-of-organization/effectiveness_vs_efficiency.md",
-        "description": "**Effectiveness** - \"Doing the right things\""
+        "description": "Comparison of effectiveness and efficiency concepts with real-world examples"
       },
       {
         "id": "week-1-mission_vision_values_strategy",
         "title": "Mission, Vision, Values, Strategy",
         "category": "week-1",
         "path": "/weeks/week-1-process-view-of-organization/mission_vision_values_strategy.md",
-        "description": "**What we do today, who we do it for, and why**"
+        "description": "Definitions and distinctions between mission, vision, values, and strategy"
       },
       {
         "id": "week-1-operations_study_guide_week1",
         "title": "Operations Management - Week 1 Study Guide",
         "category": "week-1",
         "path": "/weeks/week-1-process-view-of-organization/Operations_Study_Guide_Week1.md",
-        "description": "> **Course:** Operations Management, London Business School, Term 1 2026"
-      },
-      {
-        "id": "week-1-week1_1page_study_guide",
-        "title": "Operations Management - Week 1: One-Page Study Guide",
-        "category": "week-1",
-        "path": "/weeks/week-1-process-view-of-organization/Week1_1Page_Study_Guide.md",
-        "description": "> **Student:** Shawn D'souza | **ID:** 1552574 | **Class:** Wed 6pm-9:15pm"
+        "description": "Comprehensive study guide for Week 1 covering course overview and process analysis"
       },
       {
         "id": "week-1-week1_notes",
         "title": "Week 1 - Course Overview and Process View of Organizations",
         "category": "week-1",
         "path": "/weeks/week-1-process-view-of-organization/Week1_Notes.md",
-        "description": "> **Topic:** Course Overview and Introduction to the Process View of the Organization"
+        "description": "Lecture notes covering operations fundamentals, supply-demand matching, and process view concepts"
       },
       {
         "id": "week-1-week1_cold_call_prep",
         "title": "Week 1 Cold Call Preparation Guide",
         "category": "week-1",
         "path": "/weeks/week-1-process-view-of-organization/Week1_Cold_Call_Prep.md",
-        "description": "> **Goal:** Be ready to answer questions confidently in class. Cold calling counts toward your 30% participation grade."
+        "description": "Preparation guide for likely cold call questions in Week 1 class"
+      },
+      {
+        "id": "week-1-week1_1page_study_guide",
+        "title": "Week 1 One-Page Study Guide",
+        "category": "week-1",
+        "path": "/weeks/week-1-process-view-of-organization/Week1_1Page_Study_Guide.md",
+        "description": "Condensed one-page summary of Week 1 key concepts and formulas"
+      },
+      {
+        "id": "week-1-week_1_problem_set_solutions",
+        "title": "Week 1 Problem Set - Process Flow Foundations Solutions",
+        "category": "week-1",
+        "path": "/weeks/week-1-process-view-of-organization/Week_1_Problem_Set_Solutions.md",
+        "description": "Worked solutions for Week 1 problem set covering Kristen's Cookie Company"
       },
       {
         "id": "week-1-week1_problemset_11_solution",
-        "title": "Week 1 Problem Set 1.1 - One Dozen Cookies (Solution)",
+        "title": "Week 1 Problem Set 1.1 - One Dozen Cookies Solution",
         "category": "week-1",
         "path": "/weeks/week-1-process-view-of-organization/Week1_ProblemSet_1.1_Solution.md",
-        "description": "> **Case:** Kristen's Cookie Company"
+        "description": "Step-by-step solution for Problem Set 1.1 analyzing one dozen cookie production"
       },
       {
         "id": "week-1-week1_readings_takeaways",
         "title": "Week 1 Readings - Key Takeaways",
         "category": "week-1",
         "path": "/weeks/week-1-process-view-of-organization/Week1_Readings_Takeaways.md",
-        "description": "How to analyze and optimize a simple production process to maximize efficiency and profit."
+        "description": "Summary of key insights from Kristen's Cookie Company case and other Week 1 readings"
       },
       {
         "id": "week-1-week1_slides_study_guide",
         "title": "Week 1 Slides Study Guide",
         "category": "week-1",
         "path": "/weeks/week-1-process-view-of-organization/Week1_Slides_Study_Guide.md",
-        "description": "> **Course:** BUSA90227 - Operations Management"
+        "description": "Comprehensive guide based on Week 1 lecture slides covering process view and flow metrics"
       }
     ]
   },
@@ -259,18 +287,32 @@ export const docCategories: DocCategory[] = [
     "description": "Materials for Week 2",
     "files": [
       {
+        "id": "week-2-donner_company_questions_answers",
+        "title": "Donner Company - Discussion Questions & Answers",
+        "category": "week-2",
+        "path": "/weeks/week-2-process-analysis-evaluating-capacity/Donner_Company_Questions_Answers.md",
+        "description": "Discussion questions and answers for Donner Company case preparation"
+      },
+      {
         "id": "week-2-donner_company_summary",
         "title": "Donner Company Case Summary",
         "category": "week-2",
         "path": "/weeks/week-2-process-analysis-evaluating-capacity/Donner_Company_Summary.md",
-        "description": "- **Business:** Contract manufacturer of printed circuit boards (PCBs) for electronics manufacturers"
+        "description": "Summary of Donner Company PCB manufacturing case covering process flow and capacity decisions"
       },
       {
         "id": "week-2-week2_notes",
         "title": "Week 2 - Process Analysis I: Evaluating Process Capacity",
         "category": "week-2",
         "path": "/weeks/week-2-process-analysis-evaluating-capacity/Week2_Notes.md",
-        "description": "> **Topic:** Process Analysis I: Evaluating Process Capacity and Performing Detailed Process Analysis"
+        "description": "Lecture notes on process capacity evaluation, Little's Law, and detailed process analysis"
+      },
+      {
+        "id": "week-2-week2_problem_set_solutions",
+        "title": "Week 2 Problem Set Solutions - Donner Company and Little's Law",
+        "category": "week-2",
+        "path": "/weeks/week-2-process-analysis-evaluating-capacity/Week2_Problem_Set_Solutions.md",
+        "description": "Worked solutions for Week 2 problem set covering Donner Company analysis and Little's Law"
       }
     ]
   },
@@ -284,7 +326,7 @@ export const docCategories: DocCategory[] = [
         "title": "Week 3 - Process Analysis II: Analyzing Assembly Operations",
         "category": "week-3",
         "path": "/weeks/week-3-assembly-operations-line-balancing/Week3_Notes.md",
-        "description": "> **Topic:** Process Analysis II: Analyzing Assembly Operations and Line Balancing"
+        "description": "Lecture notes on assembly operations, line balancing, and process type classification"
       }
     ]
   },
@@ -298,7 +340,7 @@ export const docCategories: DocCategory[] = [
         "title": "Week 4 - Process Analysis Wrap-up",
         "category": "week-4",
         "path": "/weeks/week-4-process-analysis-wrapup/Week4_Notes.md",
-        "description": "> **Topic:** Process Analysis Wrap-up - Mass Customization, Line Balancing, and Scaling Production"
+        "description": "Lecture notes on mass customization, delayed differentiation, and advanced line balancing"
       }
     ]
   },
@@ -312,7 +354,7 @@ export const docCategories: DocCategory[] = [
         "title": "Week 5 - Project Management",
         "category": "week-5",
         "path": "/weeks/week-5-project-management/Week5_Notes.md",
-        "description": "> **Topic:** Project Management - Critical Path Method, PERT, and Project Crashing"
+        "description": "Lecture notes on project management, critical path method, PERT, and project crashing"
       }
     ]
   },
@@ -326,7 +368,7 @@ export const docCategories: DocCategory[] = [
         "title": "Week 6 - Setup Times and Inventory Management",
         "category": "week-6",
         "path": "/weeks/week-6-setup-times-inventory-management/Week6_Notes.md",
-        "description": "> **Topic:** Setup Times, Batch Size, EOQ Model, and Inventory Management"
+        "description": "Lecture notes on setup times, batch sizing, EOQ model, and inventory management"
       }
     ]
   },
@@ -340,7 +382,7 @@ export const docCategories: DocCategory[] = [
         "title": "Week 7 - Waiting Time Problems",
         "category": "week-7",
         "path": "/weeks/week-7-waiting-time-problems/Week7_Notes.md",
-        "description": "> **Topic:** Variability and Its Impact on Process Performance - Waiting Time Problems"
+        "description": "Lecture notes on variability's impact on waiting times and queue management"
       }
     ]
   },
@@ -354,7 +396,7 @@ export const docCategories: DocCategory[] = [
         "title": "Week 8 - Throughput Losses",
         "category": "week-8",
         "path": "/weeks/week-8-throughput-losses/Week8_Notes.md",
-        "description": "> **Topic:** Variability and Its Impact on Process Performance - Throughput Losses"
+        "description": "Lecture notes on throughput losses when customers won't wait"
       }
     ]
   },
@@ -368,7 +410,7 @@ export const docCategories: DocCategory[] = [
         "title": "Week 9 - Introduction to Quality",
         "category": "week-9",
         "path": "/weeks/week-9-quality-management/Week9_Notes.md",
-        "description": "> **Topic:** Quality Management - Dimensions, Costs, and Statistical Process Control"
+        "description": "Lecture notes on quality dimensions, cost of quality, and statistical process control"
       }
     ]
   },
@@ -382,7 +424,7 @@ export const docCategories: DocCategory[] = [
         "title": "Week 10 - Newsvendor Model",
         "category": "week-10",
         "path": "/weeks/week-10-newsvendor-model/Week10_Notes.md",
-        "description": "> **Topic:** Managing Inventory Under Uncertainty - The Newsvendor Model"
+        "description": "Lecture notes on managing inventory under uncertainty using the newsvendor model"
       }
     ]
   },
@@ -403,21 +445,21 @@ export const docCategories: DocCategory[] = [
         "title": "Operations Management - 10-Week Study Schedule",
         "category": "misc",
         "path": "/Operations_Study_Schedule_10Week.md",
-        "description": "> **Student:** Shawn D'souza (ID: 1552574)"
+        "description": "Complete 10-week study schedule with weekly rhythm and important dates"
       },
       {
         "id": "misc-operations_comprehensive_study_guide",
         "title": "Operations Management - Comprehensive Study Guide",
         "category": "misc",
         "path": "/Operations_Comprehensive_Study_Guide.md",
-        "description": "> **Course:** BUSA90227 - Operations Management"
+        "description": "Complete study guide covering all 10 weeks of operations management concepts"
       },
       {
         "id": "misc-operations_t3_2024_notes_sdz",
-        "title": "Week 1 -- Course Overview and Introduction to the Process view of the organization",
+        "title": "Operations T3 2024 Notes",
         "category": "misc",
         "path": "/Operations_T3_2024_Notes_SDZ.md",
-        "description": "- Effective operations management is about effectively matching supply"
+        "description": "Reference notes from Term 3 2024 cohort covering all operations concepts"
       }
     ]
   },
@@ -471,5 +513,5 @@ export const themeConfig: ThemeConfig = {
 
 // Summary
 // --------
-// Total files: 25
+// Total files: 28
 // Total categories: 12
