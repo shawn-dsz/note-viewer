@@ -171,7 +171,7 @@ program
   })
 
 /**
- * Preview command - preview production build
+ * Preview command - preview production build (auto-builds if needed)
  */
 program
   .command('preview')
@@ -180,9 +180,25 @@ program
   .action(async (options) => {
     const distPath = path.resolve(process.cwd(), 'dist')
 
-    if (!fs.existsSync(distPath)) {
-      console.error('No dist directory found. Run `note-viewer build` first.')
-      process.exit(1)
+    // Check if catalog needs regeneration
+    const catalogPath = path.join(packageRoot, 'src/data/docs-generated.ts')
+    const catalogNeedsUpdate = await isCatalogStale(catalogPath)
+
+    if (catalogNeedsUpdate || !fs.existsSync(distPath)) {
+      console.log('Building for preview...')
+
+      // Regenerate catalog
+      await runCatalogGenerator()
+
+      // Run production build
+      await build({
+        root: packageRoot,
+        build: {
+          outDir: distPath,
+        },
+      })
+
+      console.log('Build complete!\n')
     }
 
     console.log('Starting preview server...')
@@ -199,6 +215,60 @@ program
 
     server.printUrls()
   })
+
+/**
+ * Check if the catalog is stale (needs regeneration)
+ * Compares catalog mtime against config and markdown files
+ */
+async function isCatalogStale(catalogPath: string): Promise<boolean> {
+  // If catalog doesn't exist, it's stale
+  if (!fs.existsSync(catalogPath)) {
+    return true
+  }
+
+  const catalogMtime = fs.statSync(catalogPath).mtimeMs
+
+  // Check config file
+  const configPath = path.resolve(process.cwd(), 'note-viewer.config.ts')
+  if (fs.existsSync(configPath)) {
+    if (fs.statSync(configPath).mtimeMs > catalogMtime) {
+      return true
+    }
+  }
+
+  // Check markdown files in current directory
+  const hasNewerMd = await checkForNewerFiles(process.cwd(), catalogMtime, ['.md'])
+  return hasNewerMd
+}
+
+/**
+ * Recursively check if any files with given extensions are newer than reference time
+ */
+async function checkForNewerFiles(
+  dir: string,
+  referenceTime: number,
+  extensions: string[]
+): Promise<boolean> {
+  const ignoreDirs = new Set(['node_modules', '.git', 'dist', 'build'])
+
+  const entries = fs.readdirSync(dir, { withFileTypes: true })
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name)
+
+    if (entry.isDirectory()) {
+      if (!ignoreDirs.has(entry.name)) {
+        if (await checkForNewerFiles(fullPath, referenceTime, extensions)) {
+          return true
+        }
+      }
+    } else if (extensions.some((ext) => entry.name.endsWith(ext))) {
+      if (fs.statSync(fullPath).mtimeMs > referenceTime) {
+        return true
+      }
+    }
+  }
+  return false
+}
 
 /**
  * Run the catalog generator script
