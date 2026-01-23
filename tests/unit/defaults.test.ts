@@ -7,6 +7,7 @@ import {
 import {
   getTagConfig,
   autoDetectTags,
+  extractTagsFromContent,
   TAG_COLORS,
 } from '../../src/data/defaults/tags'
 
@@ -109,7 +110,7 @@ describe('default tags', () => {
       expect(result).toContain('important')
     })
 
-    it('limits to max 3 tags', () => {
+    it('returns all matching tags (no truncation - caller handles max)', () => {
       const config = {
         tagRules: [
           { tag: 'tag1', keywords: ['keyword1'] },
@@ -123,7 +124,103 @@ describe('default tags', () => {
         undefined,
         config
       )
-      expect(result).toHaveLength(3)
+      // autoDetectTags no longer truncates - scanner enforces max 8
+      expect(result).toHaveLength(4)
+      expect(result).toContain('tag1')
+      expect(result).toContain('tag2')
+      expect(result).toContain('tag3')
+      expect(result).toContain('tag4')
+    })
+
+    it('uses strict word boundaries', () => {
+      const config = {
+        tagRules: [
+          { tag: 'flow', keywords: ['flow'] },
+        ],
+      }
+      // "workflow" should NOT match "flow" due to word boundaries
+      expect(autoDetectTags('workflow analysis', undefined, config)).toEqual([])
+      // "flow rate" should match
+      expect(autoDetectTags('flow rate measurement', undefined, config)).toContain('flow')
+    })
+
+    it('extracts tags from content when provided', () => {
+      const config = {
+        tagRules: [
+          { tag: "Little's Law", keywords: ["little's law", "I = R × T"] },
+          { tag: 'Bottleneck', keywords: ['bottleneck', 'constraint'] },
+        ],
+      }
+      const content = "Little's Law states that I = R × T. The bottleneck limits throughput."
+      const result = autoDetectTags('Some Title', undefined, config, content)
+      expect(result).toContain("Little's Law")
+      expect(result).toContain('Bottleneck')
+    })
+  })
+
+  describe('extractTagsFromContent', () => {
+    it('extracts tags from content using rules', () => {
+      const config = {
+        tagRules: [
+          { tag: "Little's Law", keywords: ["little's law"] },
+          { tag: 'Formula', keywords: ['formula', 'equation'] },
+        ],
+      }
+      const content = "Little's Law is a fundamental formula in operations."
+      const result = extractTagsFromContent(content, config)
+      expect(result).toContain("Little's Law")
+      expect(result).toContain('Formula')
+    })
+
+    it('keeps inline backticks for formula detection', () => {
+      const config = {
+        tagRules: [
+          { tag: "Little's Law", keywords: ['I = R × T'] },
+        ],
+      }
+      const content = 'The formula `I = R × T` describes inventory.'
+      const result = extractTagsFromContent(content, config)
+      expect(result).toContain("Little's Law")
+    })
+
+    it('strips fenced code blocks', () => {
+      const config = {
+        tagRules: [
+          { tag: 'flow', keywords: ['flow'] },
+        ],
+      }
+      const content = '```js\nflow.rate = 100\n```'
+      const result = extractTagsFromContent(content, config)
+      expect(result).toEqual([])
+    })
+
+    it('uses strict word boundaries', () => {
+      const config = {
+        tagRules: [
+          { tag: 'flow', keywords: ['flow'] },
+        ],
+      }
+      // "workflow" should NOT match "flow"
+      const content = 'The workflow analysis shows improvement.'
+      expect(extractTagsFromContent(content, config)).toEqual([])
+
+      // "flow" as a standalone word should match
+      const content2 = 'The flow of materials is optimized.'
+      expect(extractTagsFromContent(content2, config)).toContain('flow')
+    })
+
+    it('sorts by frequency', () => {
+      const config = {
+        tagRules: [
+          { tag: 'rare', keywords: ['rare'] },
+          { tag: 'common', keywords: ['common'] },
+        ],
+      }
+      const content = 'common common common rare'
+      const result = extractTagsFromContent(content, config)
+      // "common" appears 3x, "rare" 1x - common should be first
+      expect(result[0]).toBe('common')
+      expect(result[1]).toBe('rare')
     })
   })
 })
