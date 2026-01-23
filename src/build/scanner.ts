@@ -7,6 +7,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import type { DocFile, DocCategory, DocFrontmatter, GeneratedCatalog } from '../types/docs.js'
 import { loadConfig, getContentDir, mergeCategoryThemes, type NotesViewerConfig, DEFAULT_CONFIG } from '../config.js'
+import { autoDetectTags } from '../data/defaults/tags.js'
 
 // Load configuration
 let config: NotesViewerConfig = DEFAULT_CONFIG
@@ -412,6 +413,21 @@ function extractMetadata(filePath: string, rootDir: string, existingIds: Set<str
     const title = extractTitle(markdownContent, fm, path.basename(filePath))
     const description = extractDescription(markdownContent, fm)
 
+    // Extract tags: frontmatter first, then auto-detected from content
+    const frontmatterTags: string[] = Array.isArray(fm.tags) ? fm.tags : []
+    const autoTags = autoDetectTags(title, description, config, markdownContent)
+
+    // Merge: frontmatter takes precedence
+    const allTags = [...frontmatterTags]
+    for (const tag of autoTags) {
+      if (!allTags.includes(tag)) {
+        allTags.push(tag)
+      }
+    }
+
+    // Enforce max 8 tags
+    const tags = allTags.slice(0, 8)
+
     // Generate path (absolute from project root, starting with /)
     const relativePath = path.relative(rootDir, filePath).replace(/\\/g, '/')
     const docPath = `/${relativePath}`
@@ -423,6 +439,7 @@ function extractMetadata(filePath: string, rootDir: string, existingIds: Set<str
       path: docPath,
       description,
       order: fm.order,
+      tags: tags.length > 0 ? tags : undefined,
     }
   } catch (error) {
     console.warn(`Warning: Could not process file ${filePath}: ${error}`)

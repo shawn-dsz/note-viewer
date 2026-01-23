@@ -12,6 +12,56 @@ interface PartialConfig {
 }
 
 /**
+ * Strip markdown elements that shouldn't be scanned for tags
+ * Removes: fenced code blocks, URLs, HTML tags
+ * KEEPS: inline backticks (for formula detection like `I = R × T`)
+ */
+function stripMarkdownNoise(content: string): string {
+  return content
+    .replace(/```[\s\S]*?```/g, '')           // fenced code blocks only
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')  // keep link text, remove URL
+    .replace(/<[^>]+>/g, '')                  // HTML tags
+    .replace(/https?:\/\/\S+/g, '')           // bare URLs
+}
+
+/**
+ * Escape special regex characters in a string
+ */
+function escapeRegex(str: string): string {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+/**
+ * Extract tags from markdown content using tagRules
+ * Uses strict word boundary matching (\b)
+ * Returns tags sorted by frequency (no limit - caller handles truncation)
+ */
+export function extractTagsFromContent(
+  content: string,
+  config?: PartialConfig
+): string[] {
+  const cleanContent = stripMarkdownNoise(content).toLowerCase()
+  const detected: Map<string, number> = new Map()
+
+  const rules = config?.tagRules || []
+
+  for (const rule of rules) {
+    for (const keyword of rule.keywords) {
+      const regex = new RegExp(`\\b${escapeRegex(keyword.toLowerCase())}\\b`, 'g')
+      const matches = cleanContent.match(regex)
+      if (matches) {
+        detected.set(rule.tag, (detected.get(rule.tag) || 0) + matches.length)
+      }
+    }
+  }
+
+  // Sort by frequency (descending), no truncation here
+  return [...detected.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([tag]) => tag)
+}
+
+/**
  * Default tag color palette
  * Warm, Notion-style colors - soft pastels that don't overpower
  */
@@ -55,25 +105,42 @@ export function getTagConfig(tag: string, config?: PartialConfig): TagConfig {
 }
 
 /**
- * Auto-detect tags from document title and description
+ * Auto-detect tags from document title, description, and content
  * Uses tagRules from config if provided
+ * Uses strict word boundary matching to prevent false positives
  */
 export function autoDetectTags(
   title: string,
   description: string | undefined,
-  config?: PartialConfig
+  config?: PartialConfig,
+  content?: string
 ): string[] {
-  const text = `${title} ${description || ''}`.toLowerCase()
+  const titleDesc = `${title} ${description || ''}`.toLowerCase()
   const detected: string[] = []
 
   // Use config tagRules if provided
   const rules = config?.tagRules || []
 
+  // Check title and description first
   for (const rule of rules) {
-    if (rule.keywords.some(kw => text.includes(kw.toLowerCase()))) {
+    if (rule.keywords.some(kw => {
+      const regex = new RegExp(`\\b${escapeRegex(kw.toLowerCase())}\\b`)
+      return regex.test(titleDesc)
+    })) {
       detected.push(rule.tag)
     }
   }
 
-  return [...new Set(detected)].slice(0, 3) // Max 3 tags
+  // Also extract from content if provided
+  if (content) {
+    const contentTags = extractTagsFromContent(content, config)
+    for (const tag of contentTags) {
+      if (!detected.includes(tag)) {
+        detected.push(tag)
+      }
+    }
+  }
+
+  // No truncation here - let caller decide max
+  return [...new Set(detected)]
 }
